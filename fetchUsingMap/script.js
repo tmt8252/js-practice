@@ -1,0 +1,28 @@
+const nestingNavigation = [
+  {
+    title: "products",
+    values: [
+      {
+        title: "electronics",
+        values: ["mobiles", "laptops", "earbuds"],
+      },
+      {
+        title: "clothes",
+        values: ["shirts", "tshirts"],
+      },
+    ],
+  },
+  {
+    title: "privacy policy",
+    values: [
+      {
+        title: "policy One",
+      },
+      {
+        title: "policy two",
+        values: ["p1", "p2"],
+      },
+    ],
+  },
+];
+
