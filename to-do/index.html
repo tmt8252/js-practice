@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>TO-DO</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>TODO LIST</h2>
+      <hr />
+      <h3>Add Item</h3>
+      <div id="addItem">
+        <p>
+          <input id="newTask" type="text" /><button onclick="add()">Add</button>
+        </p>
+      </div>
+      <hr />
+      <h3>Todo</h3>
+      <div id="todo">
+        <ul id="incompleteTasks"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
