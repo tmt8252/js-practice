@@ -58,9 +58,20 @@ list.innerHTML = nestingNavigation
     <ul>
       <li>${a.title}
         <ul>
-          ${a.values.map((b) => {
-            return `<li>${b.title}</li>`;
-          })}
+          ${a.values
+            .map((b) => {
+              if (b.values) {
+                return `
+                <li>${b.title}</li>
+                <ul>
+                ${b.values.map((c) => `<li>${c}</li>`).join("")}
+                </ul>
+                `;
+              } else {
+                return `<li>${b.title}</li>`;
+              }
+            })
+            .join("")}
         </ul>
       </li>
     </ul>
