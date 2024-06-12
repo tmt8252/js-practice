@@ -6,52 +6,53 @@ async function getData() {
 
   const container = document.getElementById("container");
 
-  obj.map((product) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
+  obj
+    .map((product) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
 
-    const img1 = document.createElement("img");
-    img1.src = product.img1;
-    card.appendChild(img1);
+      const img1 = document.createElement("img");
+      img1.src = product.img1;
+      card.appendChild(img1);
 
-    const img2 = document.createElement("img");
-    img2.src = product.img2;
-    card.appendChild(img2);
-    
-    const title = document.createElement("p");
-    title.textContent = product.title;
-    card.appendChild(title);
+      const img2 = document.createElement("img");
+      img2.src = product.img2;
+      card.appendChild(img2);
 
-    const price = document.createElement("p");
-    price.textContent = `Price - $${product.price}`;
-    card.appendChild(price);
+      const title = document.createElement("p");
+      title.textContent = product.title;
+      card.appendChild(title);
 
-    const discount = document.createElement("p");
-    discount.textContent = `Discount - ${product.discount}%`;
-    card.appendChild(discount);
+      const price = document.createElement("p");
+      price.textContent = `Price - $${product.price}`;
+      card.appendChild(price);
 
-    const qty = document.createElement("p");
-    qty.textContent = `Quantity - ${product.qty}`;
-    card.appendChild(qty);
+      const discount = document.createElement("p");
+      discount.textContent = `Discount - ${product.discount}%`;
+      card.appendChild(discount);
 
-    const category = document.createElement("p");
-    category.textContent = `Category - ${product.category}`;
-    card.appendChild(category);
+      const qty = document.createElement("p");
+      qty.textContent = `Quantity - ${product.qty}`;
+      card.appendChild(qty);
 
-    const subCategory = document.createElement("p");
-    subCategory.textContent = `Sub Category - ${product.subCategory}`;
-    card.appendChild(subCategory);
+      const category = document.createElement("p");
+      category.textContent = `Category - ${product.category}`;
+      card.appendChild(category);
 
-    const button = document.createElement("button")
-    button.textContent = "Add to Cart";
-    card.appendChild(button)
+      const subCategory = document.createElement("p");
+      subCategory.textContent = `Sub Category - ${product.subCategory}`;
+      card.appendChild(subCategory);
 
-    container.appendChild(card);
-    
+      const button = document.createElement("button");
+      button.textContent = "Add to Cart";
+      card.appendChild(button);
 
-    //! when user click add to cart button.. you have to store into localStorage and show into a
-    //! new div using if else and boolean.. remove the product from new div and localStorage
-  }).join("")
+      container.appendChild(card);
+
+      //! when user click add to cart button.. you have to store into localStorage and show into a
+      //! new div using if else and boolean.. remove the product from new div and localStorage
+    })
+    .join("");
 }
 
 getData();
