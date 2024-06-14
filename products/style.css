@@ -9,6 +9,28 @@
     grid-template-columns: auto auto auto;
 }
 
+.nav {
+    background-color: #333;
+    width: 100%;
+    color: #fff;
+    height: 50px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    span {
+        position: absolute;
+        right: 20px;
+        padding: 12px 20px;
+    }
+
+    span:hover {
+        background-color: #fff;
+        color: #333;
+        cursor: pointer;
+    }
+}
+
 .card {
     width: 400px;
     border: 1px solid #ccc;
