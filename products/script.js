@@ -1,3 +1,5 @@
+const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
 async function getData() {
   const rowData = await fetch(
     "https://res.cloudinary.com/dpiiduvvx/raw/upload/v1703580765/API/productsAPI"
@@ -45,23 +47,36 @@ async function getData() {
       button.textContent = "Add to Cart";
       card.appendChild(button);
 
-      button.addEventListener('click', () => {
-      
-        console.log("card")
-      
-      })
+      button.addEventListener("click", () => {
+        addCartItems(product);
+      });
       container.appendChild(card);
 
       //! when user click add to cart button.. you have to store into localStorage and show into a
       //! new div using if else and boolean.. remove the product from new div and localStorage
+      updateCart(product);
     })
     .join("");
 }
 
 getData();
 
+const addCartItems = (product) => {
+  cartItems.push(product);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
 
+const toggleCart = () => {
+  const cartSection = document.getElementById("cartSection");
 
-const addCart = () => {
-  console.log("cart");
+  if (cartSection.getAttribute("class") == "cart cartNotActive") {
+    cartSection.setAttribute("class", "cart cartActive");
+  } else {
+    cartSection.setAttribute("class", "cart cartNotActive");
+  }
+};
+
+const updateCart = (product) => {
+  const cartSection = document.getElementById("cartSection");
+  cartSection.innerHTML = product;
 };

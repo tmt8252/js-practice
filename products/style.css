@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+    position: relative;
+}
+
 #container {
     width: 100vw;
     display: grid;
@@ -17,7 +22,8 @@
     font-size: 24px;
     display: flex;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
     span {
         position: absolute;
         right: 20px;
@@ -29,6 +35,24 @@
         color: #333;
         cursor: pointer;
     }
+}
+
+.cart {
+    height: 100vh;
+    width: 50%;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 50px;
+    color: black;
+    transition: .5s ease-in;
+}
+
+.cartActive {
+    right: 0;
+}
+
+.cartNotActive {
+    right: -1000px;
 }
 
 .card {
