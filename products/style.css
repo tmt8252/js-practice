@@ -6,6 +6,7 @@
 body {
     overflow-x: hidden;
     position: relative;
+    background-color: aliceblue;
 }
 
 #container {
@@ -39,7 +40,7 @@ body {
 
 .cart {
     height: 100vh;
-    width: 50%;
+    width: 100%;
     background-color: whitesmoke;
     position: absolute;
     top: 50px;
@@ -52,7 +53,7 @@ body {
 }
 
 .cartNotActive {
-    right: -1000px;
+    right: -2000px;
 }
 
 .card {
@@ -63,10 +64,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fff;
 }
+
 .card img {
     height: 200px;
     object-fit: cover;
+    margin-bottom: 30px;
 }
 .card h2 {
     font-size: 20px;

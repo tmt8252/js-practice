@@ -1,4 +1,5 @@
 const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+console.log(cartItems);
 
 async function getData() {
   const rowData = await fetch(
@@ -54,7 +55,6 @@ async function getData() {
 
       //! when user click add to cart button.. you have to store into localStorage and show into a
       //! new div using if else and boolean.. remove the product from new div and localStorage
-      updateCart(product);
     })
     .join("");
 }
@@ -71,12 +71,34 @@ const toggleCart = () => {
 
   if (cartSection.getAttribute("class") == "cart cartNotActive") {
     cartSection.setAttribute("class", "cart cartActive");
+    updateCart();
   } else {
     cartSection.setAttribute("class", "cart cartNotActive");
   }
 };
 
-const updateCart = (product) => {
+const updateCart = () => {
   const cartSection = document.getElementById("cartSection");
-  cartSection.innerHTML = product;
+  cartSection.innerHTML = "";
+
+  console.log(cartItems);
+
+  cartSection.innerHTML = cartItems
+    .map((item) => {
+      return `
+      <div class="card">
+        <img src="${item.img1}" />
+        <p>Title : ${item.title}</p>
+        <p>Price : ${item.price}</p>
+        <button onclick="removeCartItems(item)">Remove Item</button>
+      </div>
+    `;
+    })
+    .join("");
+
+};
+
+const removeCartItems = (item) => {
+  const index = cartItems.indexOf(item);
+  cartItems.splice(index, 1);
 };
