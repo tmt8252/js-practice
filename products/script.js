@@ -1,5 +1,4 @@
 const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-console.log(cartItems);
 
 async function getData() {
   const rowData = await fetch(
@@ -79,26 +78,25 @@ const toggleCart = () => {
 
 const updateCart = () => {
   const cartSection = document.getElementById("cartSection");
-  cartSection.innerHTML = "";
-
-  console.log(cartItems);
+  cartSection.innerHTML = ""
 
   cartSection.innerHTML = cartItems
-    .map((item) => {
+    .map((item, index) => {
       return `
       <div class="card">
         <img src="${item.img1}" />
         <p>Title : ${item.title}</p>
         <p>Price : ${item.price}</p>
-        <button onclick="removeCartItems(item)">Remove Item</button>
+        <button onclick="removeCartItems(${JSON.stringify(index)})">Remove Item</button>
       </div>
     `;
     })
     .join("");
-
 };
 
-const removeCartItems = (item) => {
-  const index = cartItems.indexOf(item);
+const removeCartItems = (index) => {
+  
   cartItems.splice(index, 1);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  updateCart();
 };
