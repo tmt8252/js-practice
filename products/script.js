@@ -93,7 +93,7 @@ const updateCart = () => {
     })
     .join("");
 };
-
+updateCart()
 const removeCartItems = (index) => {
   
   cartItems.splice(index, 1);
